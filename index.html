@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cadastro</title>
+</head>
+<body>
+
+    <h2>Cadastro</h2>
+
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="number" id="idade" placeholder="Idade">
+    <input type="text" id="curso" placeholder="Curso">
+    <button onclick="cadastrar()">Cadastrar</button>
+
+    <button onclick="enviarFormulario()">Enviar</button>
+    <script>
+    function enviar() {
+
+ const dados = {
+    nome: document.getElementById("nome").value,
+    idade: document.getElementById("idade").value,
+    curso: document.getElementById("curso").value
+};
+
+fetch("https://script.google.com/macros/s/AKfycbz65vdUUOzT2LYB65lBsidj1ach4Cjg7QTSHNQcMUmP2jaWmvvSuORiYhSB9YDdEjHB/exec", {
+    method: "POST",
+    body: JSON.stringify(dados)
+})
+.then(res=> res.text ())
+then(resposta => {
+    alert('dados enviados com sucesso');
+    console.log(resposta);
+});
+}
+
+    </script>
+</body>
+</html>
